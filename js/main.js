@@ -81,6 +81,7 @@ const createPhoto = () => ({
   comments: similarComment,
 });
 
-const similarObject = Array.from({length:SIMILAR_PHOTO_COUNT}, createPhoto);
+const createPictures = () => Array.from({length:SIMILAR_PHOTO_COUNT}, createPhoto);
 
+createPictures();
 
