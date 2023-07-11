@@ -1,12 +1,13 @@
+
 const DESCRIPTION_PHOTO = [
-  'Lorem ipsum dolor sit amet.',
-  'consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
-  'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
-  'Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
-  'At vero eos et accusamus et iusto odio dignissimos ducimus.',
-  'Nemo enim ipsam voluptatem quia voluptas sit aspernatur.',
-  'Quis autem vel eum iure reprehenderit qui in ea voluptate velit.',
-  ' Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
+  'Мы идем вперед со скоростью и уверенностью локомотива.',
+  'Не следует, однако, забывать о том, что мы всегда первые.',
+  'Это мое первое фото на эту камеру.',
+  'Немного засветилось, но ничего страшного.',
+  'Завалил горизонт, но получилось красиво.',
+  'Посмотри, как играют краски на этой фотке.',
+  'Этот мир прекрасен и ты обязательно получишь ответы.',
+  'Нет ничего прекраснее, чем жить и жить в любви.',
 ];
 
 const NAMES_OF_COMMENTATORS = [
@@ -21,7 +22,7 @@ const NAMES_OF_COMMENTATORS = [
 ];
 
 const MESSAGES_OF_COMMENTATORS = [
-  'Всё отлично!',
+  'Всё отлично! Но ты можешь и лучше.',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
@@ -29,4 +30,4 @@ const MESSAGES_OF_COMMENTATORS = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-export{DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS};
+export {DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS};
