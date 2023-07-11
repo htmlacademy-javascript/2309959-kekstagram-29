@@ -7,6 +7,8 @@ const bigPictureDescription = bigPicture.querySelector('.social__caption');
 const bigPictureLicesCount = bigPicture.querySelector('.likes-count');
 const bigPictureCommentsCount = bigPicture.querySelector('.comments-count');
 //const bigPictureCommentsList = bigPicture.querySelector('.social__comments');
+const bigPictureSocialCommentCount = bigPicture.querySelector('.social__comment-count');
+const bigPictureCommentsLoader = bigPicture.querySelector('.comments-loader');
 
 const openBigPictureModal = (url, description, likes, comments) => {
   bigPicture.classList.remove('hidden');
@@ -15,6 +17,8 @@ const openBigPictureModal = (url, description, likes, comments) => {
   bigPictureDescription.textContent = description;
   bigPictureLicesCount.textContent = likes;
   bigPictureCommentsCount.textContent = comments.length;
+  bigPictureSocialCommentCount.classList.add('hidden');
+  bigPictureCommentsLoader.classList.add('hidden');
 };
 
 const closeBigPictureModal = () => {

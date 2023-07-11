@@ -9,7 +9,7 @@ const generatePhotoId = createUnicumId(1, 25);
 const generatePhotoUrl = createUnicumId(1, 25);
 const generateCommentatorId = createUnicumId(1, 25);
 const generateAvatarId = createUnicumId(1, 6);
-const SIMILAR_COMMENTS_COUNT = getRandomInteger(1, 10);
+const SIMILAR_COMMENTS_COUNT = getRandomInteger(5, 10);
 
 const createComment = () => ({
   id: generateCommentatorId(),
