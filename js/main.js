@@ -1,3 +1,4 @@
+
 import { createPhotoElementList } from './createPhoto.js'
 
 export { renderCommentList, onSocialCommentsLoader, createModalComments } from './modal.js'
@@ -12,3 +13,4 @@ renderLittlePictures(createPhotoElementList(25));
 renderCommentList();
 
 onSocialCommentsLoader();
+
