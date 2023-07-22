@@ -1,16 +1,24 @@
 
-import { createPhotoElementList } from './createPhoto.js'
+import { createPhotoElementList } from './createPhoto.js';
 
-export { renderCommentList, onSocialCommentsLoader, createModalComments } from './modal.js'
-export { renderLittlePictures, closeBigPictureModal, openBigPictureModal } from './modal.js'
+import {onSocialCommentsLoader, renderLittlePictures, closeBigPictureModal } from './modal.js';
 
-openBigPictureModal();
+import { closeimgUploadInput } from './uploadForm.js';
+
+import { initScale, resetScale } from './skaling.js';
 
 closeBigPictureModal();
 
+onSocialCommentsLoader();
+
 renderLittlePictures(createPhotoElementList(25));
 
-renderCommentList();
+//makeformValidation();
 
-onSocialCommentsLoader();
+closeimgUploadInput();
+
+initScale();
+
+resetScale();
+
 

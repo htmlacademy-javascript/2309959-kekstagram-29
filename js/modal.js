@@ -1,10 +1,13 @@
-import { createPhotoElementList, similarComment } from './createPhoto.js'
+
+import { similarComment } from './createPhoto.js';
+
 
 
 const littlePicturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const littlePicturesContainer = document.querySelector('.pictures');
 
 const bigPicture = document.querySelector('.big-picture');
+
 const bigPictureImg = document.querySelector('.big-picture__img img');
 const bigPictureDescription = bigPicture.querySelector('.social__caption');
 const bigPictureLicesCount = bigPicture.querySelector('.likes-count');
@@ -37,7 +40,6 @@ const closeBigPictureModal = () => {
 
   });
 };
-closeBigPictureModal();
 
 const createLittlePictures = ({ comments, description, likes, url }) => {
   const photoElement = littlePicturesTemplate.cloneNode(true);
@@ -60,8 +62,6 @@ const renderLittlePictures = (littlePictures) => {
   });
   littlePicturesContainer.append(littlePicturesListFragment);
 };
-
-renderLittlePictures(createPhotoElementList(25)); //вызвал рендер маленьких фоток
 
 const commentsContainer = document.querySelector('.social__comments');
 
@@ -87,16 +87,17 @@ const commentsList = similarComment();
 const socialCommentsLoader = document.querySelector('.social__comments-loader');
 
 const renderCommentList = () => {
-  if (commentsList.length - commentsShown < COMMENTS_PER_PORTION) {
-    commentsShown += commentsList.length - commentsShown;
-  } else {
-    commentsShown += COMMENTS_PER_PORTION;
-  }
-  if (commentsShown >= commentsList.length) {
-    socialCommentsLoader.classList.add('hidden');
-  } else {
-    socialCommentsLoader.classList.remove('hidden');
-  }
+
+  // eslint-disable-next-line no-unused-expressions
+  commentsList.length - commentsShown < COMMENTS_PER_PORTION ?
+    (commentsShown += commentsList.length - commentsShown) :
+    (commentsShown += COMMENTS_PER_PORTION);
+
+  // eslint-disable-next-line no-unused-expressions
+  commentsShown >= commentsList.length ?
+    (socialCommentsLoader.classList.add('hidden')) :
+    (socialCommentsLoader.classList.remove('hidden'));
+
   bigPicture.querySelector('.comments-count-begin').textContent = commentsShown;
   const commentsDocumentFragment = document.createDocumentFragment();
 
@@ -111,7 +112,7 @@ const renderCommentList = () => {
 renderCommentList();
 
 const onSocialCommentsLoader = () => socialCommentsLoader.addEventListener('click', () => renderCommentList());
-onSocialCommentsLoader();
 
-export { renderCommentList, onSocialCommentsLoader, createModalComments }
-export { renderLittlePictures, closeBigPictureModal, openBigPictureModal }
+
+export { renderCommentList, onSocialCommentsLoader, createModalComments };
+export { renderLittlePictures, closeBigPictureModal, openBigPictureModal };
