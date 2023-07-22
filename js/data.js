@@ -1,4 +1,7 @@
 
+//Это моки, которые потом будут заменены данными с сервера;
+
+
 const DESCRIPTION_PHOTO = [
   'Мы идем вперед со скоростью и уверенностью локомотива.',
   'Не следует, однако, забывать о том, что мы всегда первые.',
@@ -30,4 +33,5 @@ const MESSAGES_OF_COMMENTATORS = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-export {DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS};
+export { DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS };
+

@@ -1,12 +1,13 @@
-function getRandomInteger (min, max) {
+
+const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
   const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
   const result = Math.random() * (upper - lower + 1) + lower;
 
   return Math.floor(result);
-}
+};
 
-function createUnicumId (min, max) {
+const createUnicumId = (min, max) => {
   const previousValues = [];
 
   return function () {
@@ -20,6 +21,9 @@ function createUnicumId (min, max) {
     previousValues.push(currentValue);
     return currentValue;
   };
-}
+};
 
-export {getRandomInteger, createUnicumId};
+const isEscapeKey = (evt) => evt.key === 'Escape';
+const isAcceptKey = (evt) => evt.key === 'Enter' || evt.key === 'Space';
+
+export { getRandomInteger, createUnicumId, isEscapeKey, isAcceptKey};
