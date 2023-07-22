@@ -1,3 +1,4 @@
+
 import { createPhotoElementList } from './createPhoto.js';
 
 import {onSocialCommentsLoader, renderLittlePictures, closeBigPictureModal } from './modal.js';

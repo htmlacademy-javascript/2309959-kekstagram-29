@@ -1,4 +1,6 @@
+
 import { similarComment } from './createPhoto.js';
+
 
 
 const littlePicturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -38,6 +40,7 @@ const closeBigPictureModal = () => {
 
   });
 };
+
 const createLittlePictures = ({ comments, description, likes, url }) => {
   const photoElement = littlePicturesTemplate.cloneNode(true);
   photoElement.querySelector('.picture__img').src = url;
@@ -55,7 +58,6 @@ const renderLittlePictures = (littlePictures) => {
   const littlePicturesListFragment = document.createDocumentFragment();
   littlePictures.forEach((picture) => {
     const photoElement = createLittlePictures(picture);
-
     littlePicturesListFragment.append(photoElement);
   });
   littlePicturesContainer.append(littlePicturesListFragment);
@@ -85,6 +87,7 @@ const commentsList = similarComment();
 const socialCommentsLoader = document.querySelector('.social__comments-loader');
 
 const renderCommentList = () => {
+
   // eslint-disable-next-line no-unused-expressions
   commentsList.length - commentsShown < COMMENTS_PER_PORTION ?
     (commentsShown += commentsList.length - commentsShown) :
@@ -98,11 +101,6 @@ const renderCommentList = () => {
   bigPicture.querySelector('.comments-count-begin').textContent = commentsShown;
   const commentsDocumentFragment = document.createDocumentFragment();
 
-  /*Array(commentsShown).fill().forEach((_, i) => {
-    const commentElement = createModalComments(commentsList[i - 1]);
-    commentsDocumentFragment.append(commentElement);
-  });*/
-
   for (let i = 0; i < commentsShown; i++) {
     const commentElement = createModalComments(commentsList[i]);
     commentsDocumentFragment.append(commentElement);
@@ -114,6 +112,7 @@ const renderCommentList = () => {
 renderCommentList();
 
 const onSocialCommentsLoader = () => socialCommentsLoader.addEventListener('click', () => renderCommentList());
+
 
 export { renderCommentList, onSocialCommentsLoader, createModalComments };
 export { renderLittlePictures, closeBigPictureModal, openBigPictureModal };

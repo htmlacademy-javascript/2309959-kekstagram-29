@@ -1,4 +1,5 @@
 
+
 const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
   const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
@@ -27,3 +28,4 @@ const isEscapeKey = (evt) => evt.key === 'Escape';
 const isAcceptKey = (evt) => evt.key === 'Enter' || evt.key === 'Space';
 
 export { getRandomInteger, createUnicumId, isEscapeKey, isAcceptKey};
+
