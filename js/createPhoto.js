@@ -1,7 +1,7 @@
 
-import { DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS } from './data.js'
+import { DESCRIPTION_PHOTO, NAMES_OF_COMMENTATORS, MESSAGES_OF_COMMENTATORS } from './data.js';
 
-import { getRandomInteger, createUnicumId } from './util.js'
+import { getRandomInteger, createUnicumId } from './util.js';
 
 const AVATAR_MIN_ID = 1;
 const AVATAR_MAX_ID = 6;

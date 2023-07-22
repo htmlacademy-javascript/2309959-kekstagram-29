@@ -1,8 +1,6 @@
 
 import { similarComment } from './createPhoto.js';
 
-
-
 const littlePicturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const littlePicturesContainer = document.querySelector('.pictures');
 
