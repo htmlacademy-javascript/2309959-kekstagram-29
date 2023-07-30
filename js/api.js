@@ -1,4 +1,4 @@
-
+import { showErrorMessage } from './messages.js';
 
 const baseUrl = 'https://29.javascript.pages.academy/kekstagram';
 
@@ -32,6 +32,7 @@ const callApi = (url, props, cb) => {
     })
     .catch((e) => {
       showError(`Ошибка соединения:${ e.message }`);
+      showErrorMessage();
     });
 };
 

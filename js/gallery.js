@@ -1,6 +1,6 @@
 import { openBigPictureModal } from './modal.js';
 import { api } from './api.js';
-import { showSuccessMessage, showErrorMessage} from './messages.js';
+import { showSuccessMessage } from './messages.js';
 
 const smallPicturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const smallPicturesContainer = document.querySelector('.pictures');
@@ -27,16 +27,15 @@ uploadBtn.addEventListener('change', (e) => {
   const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
   if (matches) {
     uploadPreview.src = URL.createObjectURL(file);
-  } else {
-    showErrorMessage();
   }
 });
 
 //Загружаем свою фотку
 const uploadForm = document.getElementById('upload-select-image');
+
 uploadForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  api.photo.add(new FormData(uploadForm), (data) => {
+  api.photo.add(new FormData(uploadForm), () => {
     showSuccessMessage();
   });
 });
@@ -98,10 +97,14 @@ export const gallery = new function () {
   // инициализация событий фильтра
   filterElement.classList.remove('img-filters--inactive');
   filterElement.addEventListener('click', (evt) => {
-    if (!evt.target.classList.contains('img-filters__button')) {return}
+    if (!evt.target.classList.contains('img-filters__button')) {
+      return;
+    }
 
     const clickedButton = evt.target;
-    if (clickedButton.id === filterOption) {return}
+    if (clickedButton.id === filterOption) {
+      return;
+    }
 
     filterElement
       .querySelector('.img-filters__button--active')
