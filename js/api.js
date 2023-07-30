@@ -1,3 +1,5 @@
+
+
 const baseUrl = 'https://29.javascript.pages.academy/kekstagram';
 
 const errorNode = document.getElementById('error');

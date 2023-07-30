@@ -1,5 +1,6 @@
 import { openBigPictureModal } from './modal.js';
 import { api } from './api.js';
+import { showSuccessMessage, showErrorMessage} from './messages.js';
 
 const smallPicturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const smallPicturesContainer = document.querySelector('.pictures');
@@ -26,13 +27,17 @@ uploadBtn.addEventListener('change', (e) => {
   const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
   if (matches) {
     uploadPreview.src = URL.createObjectURL(file);
+  } else {
+    showErrorMessage();
   }
 });
 
+//Загружаем свою фотку
 const uploadForm = document.getElementById('upload-select-image');
 uploadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   api.photo.add(new FormData(uploadForm), (data) => {
+    showSuccessMessage();
   });
 });
 
