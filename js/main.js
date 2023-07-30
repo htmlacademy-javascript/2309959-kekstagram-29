@@ -1,24 +1,31 @@
 
-import { createPhotoElementList } from './createPhoto.js';
-
-import {onSocialCommentsLoader, renderLittlePictures, closeBigPictureModal } from './modal.js';
+import {onSocialCommentsLoader, closeBigPictureModal } from './modal.js';
 
 import { closeimgUploadInput } from './uploadForm.js';
 
 import { initScale, resetScale } from './skaling.js';
 
-closeBigPictureModal();
+import {initSliderEffect, resetSlider} from './effects.js';
 
-onSocialCommentsLoader();
+import { api } from './api.js';
 
-renderLittlePictures(createPhotoElementList(25));
+import { gallery } from './gallery.js';
 
-//makeformValidation();
-
-closeimgUploadInput();
-
-initScale();
-
-resetScale();
+api.photo.list((photos) => {
+  gallery.setPhotos(photos);
+});
 
 
+closeBigPictureModal(); //закрывает большую модалку
+
+onSocialCommentsLoader(); //загружает комментарии
+
+closeimgUploadInput(); //закрывает модальное окно загрузки фотографии пользователем
+
+initScale(); //запускает увеличение фотографии в окне загрузки фотографии
+
+resetScale(); //сбрасывает увеличение фотографии в окне загрузки фотографии
+
+initSliderEffect(); //запускает Слайдер в окне загрузки фотографии
+
+resetSlider(); //отменяет Слайдер в окне загрузки фотографии
