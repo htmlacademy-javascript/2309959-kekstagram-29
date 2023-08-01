@@ -13,6 +13,10 @@ function hideMessage() {
   body.removeEventListener('click', onBodyClick);
 }
 
+function isShownMessage() {
+  return Boolean(document.querySelector('.success') || document.querySelector('.error'));
+}
+
 function onBodyClick(evt) {
   if (
     evt.target.closest('.success__inner') ||
@@ -47,4 +51,4 @@ const showErrorMessage = () => {
   showMessage(errorMessage, '.error__button');
 };
 
-export { showSuccessMessage, showErrorMessage};
+export { showSuccessMessage, showErrorMessage, hideMessage, isShownMessage};

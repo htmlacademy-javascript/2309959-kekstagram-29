@@ -1,7 +1,7 @@
 // Функция взята из интернета и доработана
 // Источник - https://www.freecodecamp.org/news/javascript-debounce-example
 
-function debounce (callback, timeoutDelay = 500) {
+export function debounce (callback, timeoutDelay = 500) {
   // Используем замыкания, чтобы id таймаута у нас навсегда приклеился
   // к возвращаемой функции с setTimeout, тогда мы его сможем перезаписывать
   let timeoutId;
@@ -21,7 +21,7 @@ function debounce (callback, timeoutDelay = 500) {
 // Функция взята из интернета и доработана
 // Источник - https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_throttle
 
-function throttle (callback, delayBetweenFrames) {
+export function throttle (callback, delayBetweenFrames = 500) {
   // Используем замыкания, чтобы время "последнего кадра" навсегда приклеилось
   // к возвращаемой функции с условием, тогда мы его сможем перезаписывать
   let lastTime = 0;
@@ -42,4 +42,4 @@ function throttle (callback, delayBetweenFrames) {
   };
 }
 
-export { debounce, throttle};
+
