@@ -80,7 +80,6 @@ const closeBigPictureModal = () => {
       bigPicture.classList.add('hidden');
       document.body.classList.remove('modal-open');
     }
-
   });
 };
 

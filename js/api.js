@@ -2,15 +2,17 @@ import { showErrorMessage } from './messages.js';
 
 const baseUrl = 'https://29.javascript.pages.academy/kekstagram';
 
-const errorNode = document.getElementById('error');
+// const errorNode = document.getElementById('error');
 
-const showError = (message) => {
-  if (!errorNode) {
-    return;
-  }
-  errorNode.classList.add('opened');
-  errorNode.textContent = message;
-  setTimeout(() => errorNode.classList.remove('opened'), 2000);
+const showError = () => {
+  // const showError = (message) => {
+  // if (!errorNode) {
+  //   return;
+  // }
+  // errorNode.classList.add('opened');
+  // errorNode.textContent = message;
+  // setTimeout(() => errorNode.classList.remove('opened'), 2000);
+  showErrorMessage();
 };
 
 const callApi = (url, props, cb) => {
@@ -32,7 +34,6 @@ const callApi = (url, props, cb) => {
     })
     .catch((e) => {
       showError(`Ошибка соединения:${ e.message }`);
-      showErrorMessage();
     });
 };
 
