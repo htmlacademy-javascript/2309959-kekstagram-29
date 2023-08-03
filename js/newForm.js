@@ -1,6 +1,6 @@
 import { uploadFormValidation } from './validation.js';
 
-import {initSliderEffect, resetSlider} from './effects.js';
+import { initSliderEffectChange, resetSlider } from './effects.js';
 
 import { initScale, resetScale } from './skaling.js';
 
@@ -51,7 +51,7 @@ function onDocumentKeydown(evt) {
 export const startUpload = () => uploadFileInput.addEventListener('change', (e) => {
   imgUploadOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
-  initSliderEffect();
+  initSliderEffectChange();
   initScale();
 
   document.addEventListener('keydown', onDocumentKeydown);

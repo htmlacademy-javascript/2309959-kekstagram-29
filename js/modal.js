@@ -5,6 +5,7 @@ const bigPictureDescription = bigPicture.querySelector('.social__caption');
 const bigPictureLicesCount = bigPicture.querySelector('.likes-count');
 const bigPictureCommentsCount = bigPicture.querySelector('.comments-count');
 const socialCommentsLoader = document.querySelector('.social__comments-loader');
+const closeButton = document.querySelector('.big-picture__cancel');
 
 const COMMENTS_PER_PORTION = 5;
 
@@ -54,6 +55,30 @@ renderCommentList();
 
 const onCommentsLoaderClick = () => socialCommentsLoader.addEventListener('click', () => renderCommentList());
 
+const onCloseBtnClick = () => {
+  closeButton.addEventListener('click', () => {
+    bigPicture.classList.add('hidden');
+    document.body.classList.remove('modal-open');
+  });
+};
+
+const onDocumentKeydown = () => {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      evt.preventDefault();
+      bigPicture.classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    }
+  });
+};
+
+const closeBigPictureModal = () => {
+  onCloseBtnClick();
+  onDocumentKeydown();
+  closeButton.removeEventListener('click', onCloseBtnClick); // закрываю форму, удаляю обработчик по клику
+  document.removeEventListener('keydown', onDocumentKeydown); // закрываю форму, удаляю обработчик по кнопке
+};
+
 
 const openBigPictureModal = (url, description, likes, comments) => {
   bigPicture.classList.remove('hidden');
@@ -66,22 +91,8 @@ const openBigPictureModal = (url, description, likes, comments) => {
   commentsList = comments;
   commentsShown = 0;
   renderCommentList();
-};
-
-const closeBigPictureModal = () => {
-  const closeButton = document.querySelector('.big-picture__cancel');
-  closeButton.addEventListener('click', () => {
-    bigPicture.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-  });
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      evt.preventDefault();
-      bigPicture.classList.add('hidden');
-      document.body.classList.remove('modal-open');
-    }
-  });
+  closeBigPictureModal();
 };
 
 export { renderCommentList, onCommentsLoaderClick, createModalComments };
-export { closeBigPictureModal, openBigPictureModal };
+export { openBigPictureModal };
