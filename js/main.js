@@ -1,5 +1,5 @@
 
-import { onSocialCommentsLoader, closeBigPictureModal } from './modal.js';
+import { onCommentsLoaderClick } from './modal.js';
 
 import { startUpload, sendPhoto } from './newForm.js';
 
@@ -15,8 +15,6 @@ startUpload();
 
 sendPhoto();
 
-onSocialCommentsLoader(); //загружает комментарии
-
-closeBigPictureModal(); //закрывает большую модалку
+onCommentsLoaderClick(); //загружает комментарии
 
 

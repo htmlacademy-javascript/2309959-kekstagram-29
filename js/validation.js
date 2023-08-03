@@ -1,10 +1,10 @@
 const hashtagsSymbols = /^#[a-zа-яё0-9]{1,19}$/i;
 const hashtagsMin = 5;
 const hashtagsMax = 140;
-const hashtagMaxError = () => 'Слишком много хэштегов!';
-const hashtagUniquenessError = () => 'Два одинаковых хэштэга!';
-const hashtagSymbolsError = () => 'Исправьте хэштег, пожалуйста!';
-const textError = () => 'Комментарий не может быть длиннее 140 символов!';
+const showHashtagMaxError = () => 'Слишком много хэштегов!';
+const showHashtagUniquenessError = () => 'Два одинаковых хэштэга!';
+const showHashtagSymbolsError = () => 'Исправьте хэштег, пожалуйста!';
+const showTextError = () => 'Комментарий не может быть длиннее 140 символов!';
 
 const validateHashtag = (value) => value.split(/\s+/).length <= hashtagsMin;
 const validateTextarea = (value) => value.length <= hashtagsMax;
@@ -38,10 +38,10 @@ const uploadFormValidation = (form) => {
     errorTextClass: 'text__error'
   }, true);
 
-  pristine.addValidator(inputHashtags, validateHashtag, hashtagMaxError);
-  pristine.addValidator(inputHashtags, validateUniqueness, hashtagUniquenessError);
-  pristine.addValidator(inputHashtags, validateHashtagSymbols , hashtagSymbolsError);
-  pristine.addValidator(textarea, validateTextarea, textError);
+  pristine.addValidator(inputHashtags, validateHashtag, showHashtagMaxError);
+  pristine.addValidator(inputHashtags, validateUniqueness, showHashtagUniquenessError);
+  pristine.addValidator(inputHashtags, validateHashtagSymbols , showHashtagSymbolsError);
+  pristine.addValidator(textarea, validateTextarea, showTextError);
 
   inputHashtags.addEventListener('keydown', hashtagsKeydown);
   textarea.addEventListener('keydown', textareaKeydown);
