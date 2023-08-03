@@ -14,22 +14,22 @@ const uploadFileInput = document.getElementById('upload-file');
 const uploadPreview = document.querySelector('.img-upload__preview img');//это элемент Превьюхи
 const uploadForm = document.getElementById('upload-select-image');//эту форму надо чекать в Пристин
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
-const uploadCancelButton = document.getElementById('upload-cancel');
+const uploadCancelBtn = document.getElementById('upload-cancel');
 const textHashtags = document.querySelector('.text__hashtags');
 const textDescription = document.querySelector('.text__description');
 const uploadSubmitBtn = document.getElementById('upload-submit');
 
 const makeformValidation = uploadFormValidation(uploadForm);
 
-const closeUploadFileInput = () => {
+const onUploadCancelBtnClick = () => {
   imgUploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', onDocumentKeydown);
-  uploadCancelButton.removeEventListener('click', closeUploadFileInput);
-  uploadForm.reset();
-  resetScale();
-  resetSlider();
-  makeformValidation.reset();
+  uploadForm.reset(); // сбрасываю данные формы
+  resetScale(); // сбрасываю кнопку увеличения/уменьшения фото
+  resetSlider(); // сбрасываю сладер эффектов на фото
+  makeformValidation.reset(); // сбрасываю валидатор
+  document.removeEventListener('keydown', onDocumentKeydown); // закрываю форму, удаляю обработчик по кнопке
+  uploadCancelBtn.removeEventListener('click', onUploadCancelBtnClick); // закрываю форму, удаляю обработчик по клику
 };
 
 const isTextInputsFocused = () =>
@@ -43,7 +43,7 @@ function onDocumentKeydown(evt) {
     if (isShownMessage()) {
       hideMessage();
     } else {
-      closeUploadFileInput();
+      onUploadCancelBtnClick();
     }
   }
 }
@@ -55,7 +55,8 @@ export const startUpload = () => uploadFileInput.addEventListener('change', (e) 
   initScale();
 
   document.addEventListener('keydown', onDocumentKeydown);
-  uploadCancelButton.addEventListener('click', closeUploadFileInput);
+  uploadCancelBtn.addEventListener('click', onUploadCancelBtnClick);
+
   const file = e.target.files[0];
   const fileName = file.name.toLowerCase();
   const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
@@ -78,6 +79,6 @@ export const sendPhoto = () => uploadForm.addEventListener('submit', (e) => {
     uploadSubmitBtn.disabled = false;
     showSuccessMessage();
     makeformValidation.reset();
-    closeUploadFileInput();
+    onUploadCancelBtnClick();
   });
 });
