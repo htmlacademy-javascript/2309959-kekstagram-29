@@ -52,7 +52,7 @@ const renderCommentList = function () {
 };
 renderCommentList();
 
-const onSocialCommentsLoader = () => socialCommentsLoader.addEventListener('click', () => renderCommentList());
+const onCommentsLoaderClick = () => socialCommentsLoader.addEventListener('click', () => renderCommentList());
 
 
 const openBigPictureModal = (url, description, likes, comments) => {
@@ -83,5 +83,5 @@ const closeBigPictureModal = () => {
   });
 };
 
-export { renderCommentList, onSocialCommentsLoader, createModalComments };
+export { renderCommentList, onCommentsLoaderClick, createModalComments };
 export { closeBigPictureModal, openBigPictureModal };
